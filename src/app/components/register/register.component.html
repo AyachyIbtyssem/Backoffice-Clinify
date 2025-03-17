@@ -1,0 +1,65 @@
+<div class="register-wrapper">
+  <div class="register-container">
+    <img src="/assets/images/logo.png" alt="Logo" class="logo">
+    <h2>Inscription</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+
+      <div>
+        <label>Prénom :</label>
+        <input type="text" formControlName="firstName" required>
+      </div>
+
+      <div>
+        <label>Nom :</label>
+        <input type="text" formControlName="lastName" required>
+      </div>
+
+      <div>
+        <label>Email :</label>
+        <input type="email" formControlName="email" required>
+      </div>
+
+      <div>
+        <label>Mot de passe :</label>
+        <input type="password" formControlName="password" required>
+      </div>
+
+      <div>
+        <label>Téléphone :</label>
+        <input type="text" formControlName="phone" required>
+      </div>
+
+      <div>
+        <label>Adresse :</label>
+        <input type="text" formControlName="address">
+      </div>
+
+      <div>
+        <label>Rôle :</label>
+        <select formControlName="role">
+          <option value="patient">Patient</option>
+          <option value="assistant">Assistant</option>
+          <option value="medecin">Médecin</option>
+        </select>
+      </div>
+
+      <!-- Champs spécifiques aux médecins -->
+      <div *ngIf="isMedecin">
+        <label>Spécialité :</label>
+        <input type="text" formControlName="specialty" required>
+      </div>
+
+      <div *ngIf="isMedecin">
+        <label>Numéro de salle :</label>
+        <input type="text" formControlName="numSalle" required>
+      </div>
+
+      <div *ngIf="isMedecin">
+        <label>Nom du département :</label>
+        <input type="text" formControlName="nomDept" required>
+      </div>
+
+      <button type="submit" [disabled]="registerForm.invalid">S'inscrire</button>
+    </form>
+  </div>
+</div>
