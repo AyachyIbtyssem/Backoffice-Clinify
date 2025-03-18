@@ -7,6 +7,8 @@
     overflow-x: auto;
     margin: 200px;
     margin-top: 3px;
+    margin-right: -25px;
+    margin-left: 225px;
 }
 
 table {
