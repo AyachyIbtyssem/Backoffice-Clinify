@@ -1,10 +1,52 @@
-/* 📌 Style général de la page Home */
+/* Style général de la page Home */
 .home-container {
   text-align: center;
   padding: 20px;
   margin-left: 250px; /* Ajuste selon la largeur du dashboard */
 }
 
+/* Calendrier réduit */
+.calendar-container {
+  background: #fff;
+  padding: 52px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 538px; /* Réduit la largeur */
+  margin: 20px auto; /* Centre le calendrier */
+}
+
+mat-calendar {
+  max-width: 100%;
+  transform: scale(0.8); /* Réduit la taille du calendrier */
+}
+
+.rendezvous-day {
+  background-color: #ffcc00 !important; /* Jaune */
+  border-radius: 50%;
+  color: black !important;
+  font-weight: bold;
+}
+
+/* Applique le style aux jours de rendez-vous */
+::ng-deep .mat-calendar-body-cell.rdv-en-attente .mat-calendar-body-cell-content {
+  background-color: #ffcc00 !important; /* Jaune */
+  color: black !important;
+  border-radius: 50%;
+}
+
+::ng-deep .mat-calendar-body-cell.rdv-valide .mat-calendar-body-cell-content, 
+::ng-deep .mat-calendar-body-cell.rdv-validé .mat-calendar-body-cell-content { 
+  background-color: #4caf50 !important; /* Vert */
+  color: white !important;
+  border-radius: 50%;
+}
+
+::ng-deep .mat-calendar-body-cell.rdv-échoué .mat-calendar-body-cell-content {
+  background-color: #f44336 !important; /* 🔴 Rouge */
+  color: white !important;
+  border-radius: 50%;
+}
 /* 📌 Message de bienvenue */
 .welcome-message {
   text-align: center;
@@ -37,20 +79,4 @@
 .card mat-icon {
   font-size: 30px; /* Réduit la taille des icônes */
   color: #007bff;
-}
-
-/* 📌 Calendrier réduit */
-.calendar-container {
-  background: #fff;
-  padding: 52px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 538px; /* Réduit la largeur */
-  margin: 20px auto; /* Centre le calendrier */
-}
-
-mat-calendar {
-  max-width: 100%;
-  transform: scale(0.8); /* Réduit la taille du calendrier */
 }

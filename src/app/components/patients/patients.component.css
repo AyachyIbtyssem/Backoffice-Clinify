@@ -6,6 +6,8 @@
     height: auto; /* Ajuste la hauteur selon le contenu */
     padding: 50px 200px; /* Augmente le padding à droite */
     overflow-x: auto;
+    margin: 200px;
+    margin-top: 3px;
 }
 
 /* Style du tableau */

@@ -32,10 +32,17 @@
   <!-- Calendrier des rendez-vous -->
   <div class="calendar-container">
     <h2>Calendrier des rendez-vous</h2>
-    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+    <mat-calendar [(selected)]="selectedDate" [dateClass]="dateClass" (selectedChange)="onDateSelect($event)">
+    </mat-calendar>
+  
+    <!-- Affichage des détails du rendez-vous -->
+    <div *ngIf="selectedRdvDetails">
+      <p>{{ selectedRdvDetails }}</p>
+    </div>
   </div>
-</div>
+  
 
+  
 <div class="home-container">
   <h1>Bienvenue sur Clinify</h1>
   <p>Gérez vos rendez-vous et votre suivi médical en toute simplicité.</p>

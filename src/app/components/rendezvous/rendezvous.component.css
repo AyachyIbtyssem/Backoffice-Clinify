@@ -5,6 +5,8 @@
     height: auto;
     padding: 50px;
     overflow-x: auto;
+    margin: 200px;
+    margin-top: 3px;
 }
 
 table {
@@ -19,7 +21,7 @@ table {
 
 th {
     background-color: #1976d2;
-    color: white;
+    color: black;
     font-weight: bold;
     text-align: center;
     padding: 12px;
