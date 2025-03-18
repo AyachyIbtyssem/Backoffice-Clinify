@@ -6,6 +6,8 @@
     height: auto;
     padding: 50px 200px;
     overflow-x: auto;
+    margin: 200px;
+    margin-top: 3px;
 }
 
 /* Style du tableau */

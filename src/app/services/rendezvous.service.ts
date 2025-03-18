@@ -20,7 +20,19 @@ export class RendezVousService {
 
   constructor(private http: HttpClient) {}
 
+  // Récupérer tous les rendez-vous
   getRendezVous(): Observable<RendezVous[]> {
     return this.http.get<RendezVous[]>(this.apiUrl);
   }
+
+  // Récupérer les rendez-vous pour une date spécifique
+  getRendezvousByDate(date: string): Observable<RendezVous[]> {
+    return this.http.get<RendezVous[]>(`${this.apiUrl}?date=${date}`);
+  }
+
+  // Récupérer toutes les dates avec rendez-vous
+  getAllRendezvousDates(): Observable<{ date: string, statut: string }[]> {
+    return this.http.get<{ date: string, statut: string }[]>(this.apiUrl);
+  }
+  
 }
