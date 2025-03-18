@@ -3,7 +3,7 @@
   <div class="welcome-message">
     <h1>Bienvenue, Administrateur !</h1>
     <p>Nos missions: soigner, accompagner, innover, former</p>
-    <p>Nos valeurs: respect, responsabilité, transparence, qualité. </p>
+    <p>Nos valeurs: respect, responsabilité, transparence, qualité.</p>
   </div>
 
   <!-- Statistiques Rapides -->
@@ -33,13 +33,15 @@
   <!-- Calendrier des rendez-vous -->
   <div class="calendar-container">
     <h2>Calendrier des rendez-vous</h2>
-    <mat-calendar [(selected)]="selectedDate" [dateClass]="dateClass" (selectedChange)="onDateSelect($event)">
+    <mat-calendar 
+      [(selected)]="selectedDate" 
+      [dateClass]="dateClass" 
+      (selectedChange)="onDateSelect($event)">
     </mat-calendar>
-  
+
     <!-- Affichage des détails du rendez-vous -->
-    <div *ngIf="selectedRdvDetails">
+    <div *ngIf="selectedRdvDetails" class="rdv-details">
       <p>{{ selectedRdvDetails }}</p>
     </div>
   </div>
-  
-
+</div>

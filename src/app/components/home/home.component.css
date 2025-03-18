@@ -2,42 +2,35 @@
 .home-container {
   text-align: center;
   padding: 20px;
-  margin-left: 250px; /* Ajuste selon la largeur du dashboard */
+  margin-left: 250px;
 }
 
-/* Calendrier réduit */
+/* 📌 Calendrier */
 .calendar-container {
   background: #fff;
-  padding: 52px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 538px; /* Réduit la largeur */
-  margin: 20px auto; /* Centre le calendrier */
+  width: 538px;
+  margin: 20px auto;
 }
 
 mat-calendar {
   max-width: 100%;
-  transform: scale(0.8); /* Réduit la taille du calendrier */
+  transform: scale(0.8);
 }
 
-.rendezvous-day {
-  background-color: #ffcc00 !important; /* Jaune */
-  border-radius: 50%;
-  color: black !important;
-  font-weight: bold;
-}
-
-/* Applique le style aux jours de rendez-vous */
+/* 📌 Styles pour les jours de rendez-vous */
 ::ng-deep .mat-calendar-body-cell.rdv-en-attente .mat-calendar-body-cell-content {
-  background-color: #ffcc00 !important; /* Jaune */
+  background-color: #ffcc00 !important; /* 🟡 Jaune */
   color: black !important;
   border-radius: 50%;
 }
 
 ::ng-deep .mat-calendar-body-cell.rdv-valide .mat-calendar-body-cell-content, 
 ::ng-deep .mat-calendar-body-cell.rdv-validé .mat-calendar-body-cell-content { 
-  background-color: #4caf50 !important; /* Vert */
+  background-color: #4caf50 !important; /* 🟢 Vert */
   color: white !important;
   border-radius: 50%;
 }
@@ -47,6 +40,7 @@ mat-calendar {
   color: white !important;
   border-radius: 50%;
 }
+
 /* 📌 Message de bienvenue */
 .welcome-message {
   text-align: center;
@@ -60,7 +54,7 @@ mat-calendar {
 /* 📌 Conteneur des stats */
 .stats-cards {
   display: flex;
-  flex-wrap: wrap; /* Permet d'ajuster si la largeur de l'écran est petite */
+  flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
 }
@@ -72,11 +66,20 @@ mat-calendar {
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 150px; /* Réduit la taille des cartes */
+  width: 150px;
   font-size: 14px;
 }
 
 .card mat-icon {
-  font-size: 30px; /* Réduit la taille des icônes */
+  font-size: 30px;
   color: #267580;
+}
+
+/* 📌 Affichage des détails du rendez-vous */
+.rdv-details {
+  margin-top: 10px;
+  background: #e3f2fd;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
 }
