@@ -1,0 +1,42 @@
+/* Conteneur du tableau */
+.table-container {
+    display: flex;
+    justify-content: flex-end; /* Garde le tableau à droite */
+    align-items: flex-start; /* Aligne le tableau en haut */
+    height: auto; /* Ajuste la hauteur selon le contenu */
+    padding: 50px 200px; /* Augmente le padding à droite */
+    overflow-x: auto;
+}
+
+/* Style du tableau */
+table {
+    width: 60%; /* Ajuste la largeur */
+    max-width: 900px; /* Évite que le tableau devienne trop large */
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: auto; /* Décale encore plus le tableau vers la droite */
+}
+
+/* Style des en-têtes */
+th {
+    background-color: #1976d2;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+}
+
+/* Style des cellules */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Effet de survol */
+tr:hover {
+    background-color: #f5f5f5;
+}
