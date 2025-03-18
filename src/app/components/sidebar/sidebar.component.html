@@ -1,10 +1,9 @@
 <div class="sidebar" [ngClass]="{ 'collapsed': isCollapsed }">
-  <!-- Bouton pour réduire/agrandir la sidebar -->
+  <!-- Bouton pour réduire la sidebar -->
   <div class="toggle-btn" (click)="toggleSidebar()">
     <mat-icon>menu</mat-icon>
   </div>
 
-  
   <!-- Logo -->
   <div class="logo">
     <a routerLink="/" class="logo-link">
@@ -15,28 +14,29 @@
   
   <!-- Menu -->
   <ul class="menu">
-    <li>
+    <!-- ✅ Afficher seulement si l'utilisateur est connecté -->
+    <li *ngIf="isLoggedIn">
       <a routerLink="/dashboard">
         <mat-icon>dashboard</mat-icon> <span *ngIf="!isCollapsed">Dashboard</span>
       </a>
     </li>
-    <li routerLinkActive="active">
+    <li *ngIf="isLoggedIn">
       <a routerLink="/patients">
         <mat-icon>group</mat-icon> <span *ngIf="!isCollapsed">Patients</span>
       </a>
     </li>
-    <li>
+    <li *ngIf="isLoggedIn">
       <a routerLink="/medecins">
         <mat-icon>medical_services</mat-icon> <span *ngIf="!isCollapsed">Médecins</span>
       </a>
     </li>
-    <li>
+    <li *ngIf="isLoggedIn">
       <a routerLink="/rendezvous">
         <mat-icon>calendar_today</mat-icon> <span *ngIf="!isCollapsed">Rendez-vous</span>
       </a>
     </li>
 
-    <!-- Si l'utilisateur N'EST PAS connecté -->
+    <!-- ✅ Afficher seulement si l'utilisateur N'EST PAS connecté -->
     <li *ngIf="!isLoggedIn">
       <a routerLink="/login">
         <mat-icon>login</mat-icon> <span *ngIf="!isCollapsed">Se Connecter</span>
@@ -48,7 +48,7 @@
       </a>
     </li>
 
-    <!-- Si l'utilisateur EST connecté -->
+    <!-- ✅ Bouton de déconnexion (visible uniquement si connecté) -->
     <li class="logout" *ngIf="isLoggedIn">
       <a (click)="logout()">
         <mat-icon>logout</mat-icon> <span *ngIf="!isCollapsed">Se Déconnecter</span>

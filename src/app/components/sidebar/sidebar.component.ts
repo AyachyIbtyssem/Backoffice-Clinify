@@ -15,11 +15,11 @@ import { RouterModule } from '@angular/router'; // ✅ Ajout du RouterModule
 })
 export class SidebarComponent {
   isCollapsed = false;
-
+  isLoggedIn = false;
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
   }
-  isLoggedIn = false;
+
 
   constructor(private router: Router, private authService: AuthService) {
     this.authService.isLoggedIn$.subscribe(status => {

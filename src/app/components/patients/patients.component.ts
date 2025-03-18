@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { PatientsService } from '../../services/patient.service';
+import { RouterModule } from '@angular/router'; // ✅ Ajout du RouterModule
 
 interface Patient {
   id: number;
@@ -16,7 +17,7 @@ interface Patient {
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [CommonModule, MatTableModule], // ✅ Importation de MatTableModule
+  imports: [CommonModule, MatTableModule, RouterModule ], // ✅ Importation de MatTableModule
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.css']
 })
