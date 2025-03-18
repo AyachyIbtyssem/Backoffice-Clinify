@@ -1,1 +1,45 @@
-<p>rendezvous works!</p>
+<div class="table-container">
+    <table mat-table [dataSource]="rendezvous" class="mat-elevation-z8">
+  
+      <!-- Date -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let rdv"> {{ rdv.date }} </td>
+      </ng-container>
+  
+      <!-- Heure -->
+      <ng-container matColumnDef="heure">
+        <th mat-header-cell *matHeaderCellDef> Heure </th>
+        <td mat-cell *matCellDef="let rdv"> {{ rdv.heure }} </td>
+      </ng-container>
+  
+      <!-- Statut -->
+      <ng-container matColumnDef="statut">
+        <th mat-header-cell *matHeaderCellDef> Statut </th>
+        <td mat-cell *matCellDef="let rdv"> {{ rdv.statut }} </td>
+      </ng-container>
+  
+      <!-- Type de Rendez-vous -->
+      <ng-container matColumnDef="typeRendezVous">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let rdv"> {{ rdv.typeRendezVous }} </td>
+      </ng-container>
+  
+      <!-- ID du Patient -->
+      <ng-container matColumnDef="IdPatient">
+        <th mat-header-cell *matHeaderCellDef> Patient </th>
+        <td mat-cell *matCellDef="let rdv"> {{ rdv.IdPatient }} </td>
+      </ng-container>
+  
+      <!-- ID du Médecin -->
+      <ng-container matColumnDef="IdMedecin">
+        <th mat-header-cell *matHeaderCellDef> Médecin </th>
+        <td mat-cell *matCellDef="let rdv"> {{ rdv.IdMedecin }} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    </table>
+  </div>
+  
