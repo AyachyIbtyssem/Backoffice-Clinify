@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { MatIconModule } from '@angular/material/icon'; // ✅ Import de MatIconModule
 import { NgIf } from '@angular/common'; // ✅ Import de NgIf pour les *ngIf
+import { RouterModule } from '@angular/router'; // ✅ Ajout du RouterModule
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [MatIconModule, NgIf], // ✅ Ajouter ici MatIconModule + NgIf
+  imports: [MatIconModule, NgIf, RouterModule], // ✅ Ajouter ici MatIconModule + NgIf
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
