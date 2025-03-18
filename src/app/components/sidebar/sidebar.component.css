@@ -1,0 +1,87 @@
+/* 🎨 Style général */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1E1E2D;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+    transition: width 0.3s;
+  }
+  
+  /* Style du logo cliquable */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+  /* 🏥 Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .logo img {
+    width: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .logo h2 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* 📌 Menu */
+  .menu {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .menu li {
+    width: 88%;
+    padding: 12px 15px;
+    text-align: left;
+    transition: background 0.3s ease;
+  }
+  
+  .menu li:hover {
+    background: #343A40;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* 📌 Icônes Material */
+  .mat-icon {
+    font-size: 20px;
+  }
+  
+  /* 🚪 Bouton de déconnexion */
+  .logout {
+    margin-top: auto;
+    background: #267580;
+  }
+  
+  .logout:hover {
+    background: #267580;
+  }
+  

@@ -1,9 +1,43 @@
-
-  <div class="home-container">
-    <h1>Bienvenue sur Clinify</h1>
-    <p>Gérez vos rendez-vous et votre suivi médical en toute simplicité.</p>
-    <button routerLink="/register">S'inscrire</button>
+<div class="dashboard-container">
+  <!-- Message de bienvenue -->
+  <div class="welcome-message">
+    <h1>Bienvenue, Administrateur !</h1>
+    <p>Gérez votre clinique en toute simplicité.</p>
   </div>
 
+  <!-- Statistiques Rapides -->
+  <div class="stats-cards">
+    <div class="card">
+      <mat-icon>group</mat-icon>
+      <h3>Patients</h3>
+      <p>150</p>
+    </div>
+    <div class="card">
+      <mat-icon>medical_services</mat-icon>
+      <h3>Médecins</h3>
+      <p>20</p>
+    </div>
+    <div class="card">
+      <mat-icon>calendar_today</mat-icon>
+      <h3>Rendez-vous aujourd’hui</h3>
+      <p>50</p>
+    </div>
+    <div class="card">
+      <mat-icon>pending_actions</mat-icon>
+      <h3>Rendez-vous en attente</h3>
+      <p>10</p>
+    </div>
+  </div>
 
-  
+  <!-- Calendrier des rendez-vous -->
+  <div class="calendar-container">
+    <h2>Calendrier des rendez-vous</h2>
+    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+  </div>
+</div>
+
+<div class="home-container">
+  <h1>Bienvenue sur Clinify</h1>
+  <p>Gérez vos rendez-vous et votre suivi médical en toute simplicité.</p>
+  <button routerLink="/register">S'inscrire</button>
+</div>

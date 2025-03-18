@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { MatIconModule } from '@angular/material/icon'; // ✅ Import de MatIconModule
+import { NgIf } from '@angular/common'; // ✅ Import de NgIf pour les *ngIf
+
+@Component({
+  selector: 'app-sidebar',
+  standalone: true,
+  imports: [MatIconModule, NgIf], // ✅ Ajouter ici MatIconModule + NgIf
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css'
+})
+export class SidebarComponent {
+  isLoggedIn = false;
+
+  constructor(private router: Router, private authService: AuthService) {
+    this.authService.isLoggedIn$.subscribe(status => {
+      this.isLoggedIn = status;
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']); // ✅ Redirection après déconnexion
+  }
+}
