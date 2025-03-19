@@ -4,7 +4,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
 import { RendezVousService } from '../../services/rendezvous.service';
 import { RouterModule } from '@angular/router';
+import { PatientService } from '../../services/patient.service';
+import { MedecinsService } from '../../services/medecins.service';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
+// Interface pour représenter un rendez-vous
 interface RendezVous {
   idRDV: number;
   date: string;
@@ -12,7 +18,21 @@ interface RendezVous {
   statut: string;
   typeRendezVous: string;
   IdPatient: number;
+  NomPatient?: string;
   IdMedecin: number;
+  NomMedecin?: string;
+}
+
+// Interface pour représenter un patient
+interface Patient {
+  firstName: string;
+  lastName: string;
+}
+
+// Interface pour représenter un médecin
+interface Medecin {
+  firstName: string;
+  lastName: string;
 }
 
 @Component({
@@ -23,10 +43,14 @@ interface RendezVous {
   styleUrls: ['./rendezvous.component.css']
 })
 export class RendezvousComponent implements OnInit {
-  displayedColumns: string[] = ['date', 'heure', 'statut', 'typeRendezVous', 'IdPatient', 'IdMedecin'];
+  displayedColumns: string[] = ['date', 'heure', 'statut', 'typeRendezVous', 'NomPatient', 'NomMedecin'];
   dataSource = new MatTableDataSource<RendezVous>([]);
 
-  constructor(private rendezVousService: RendezVousService) {}
+  constructor(
+    private rendezVousService: RendezVousService,
+    private patientService: PatientService,
+    private medecinService: MedecinsService
+  ) {}
 
   ngOnInit(): void {
     this.loadRendezVous();
@@ -35,10 +59,24 @@ export class RendezvousComponent implements OnInit {
   loadRendezVous() {
     this.rendezVousService.getRendezVous().subscribe({
       next: (data: RendezVous[]) => {
-        this.dataSource.data = data; // Mise à jour de `dataSource`
-        console.log("Rendez-vous chargés :", this.dataSource.data);
+        const observables = data.map(rdv => 
+          forkJoin({
+            patient: this.patientService.getPatientById(rdv.IdPatient) as Observable<Patient>,
+            medecin: this.medecinService.getMedecinById(rdv.IdMedecin) as Observable<Medecin>            
+          }).pipe(
+            map(({ patient, medecin }) => ({
+              ...rdv,
+              NomPatient: `${patient.firstName} ${patient.lastName}`,
+              NomMedecin: `${medecin.firstName} ${medecin.lastName}`
+            }))
+          )
+        );
+
+        forkJoin(observables).subscribe((updatedRdvList: RendezVous[]) => {
+          this.dataSource.data = updatedRdvList;
+        });
       },
-      error: (err: unknown) => {
+      error: (err) => {
         console.error("Erreur lors du chargement des rendez-vous :", err);
       }
     });

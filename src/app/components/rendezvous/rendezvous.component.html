@@ -25,17 +25,18 @@
       <td mat-cell *matCellDef="let rdv"> {{ rdv.typeRendezVous }} </td>
     </ng-container>
 
-    <!-- ID du Patient -->
-    <ng-container matColumnDef="IdPatient">
+    <!-- Nom du Patient -->
+    <ng-container matColumnDef="NomPatient">
       <th mat-header-cell *matHeaderCellDef> Patient </th>
-      <td mat-cell *matCellDef="let rdv"> {{ rdv.IdPatient }} </td>
+      <td mat-cell *matCellDef="let rdv"> {{ rdv.NomPatient }} </td>
     </ng-container>
 
-    <!-- ID du Médecin -->
-    <ng-container matColumnDef="IdMedecin">
+    <!-- Nom du Médecin -->
+    <ng-container matColumnDef="NomMedecin">
       <th mat-header-cell *matHeaderCellDef> Médecin </th>
-      <td mat-cell *matCellDef="let rdv"> {{ rdv.IdMedecin }} </td>
+      <td mat-cell *matCellDef="let rdv"> {{ rdv.NomMedecin }} </td>
     </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

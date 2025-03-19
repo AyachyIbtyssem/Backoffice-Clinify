@@ -60,7 +60,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  // Applique les classes CSS aux jours de rendez-vous selon leur statut
   dateClass = (d: Date): MatCalendarCellCssClasses => {
     const dateStr = d.toDateString();
     const statut = this.rendezvousDates.get(dateStr);
@@ -74,6 +73,4 @@ export class HomeComponent implements OnInit {
     }
     return ''; 
   };
-  
-  
-}
+  }

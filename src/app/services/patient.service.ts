@@ -15,7 +15,7 @@ interface Patient {
 @Injectable({
   providedIn: 'root'
 })
-export class PatientsService {
+export class PatientService {
   private apiUrl = 'http://localhost:3000/api/patients';
 
   constructor(private http: HttpClient) {}
@@ -23,4 +23,8 @@ export class PatientsService {
   getPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(this.apiUrl);
   }
+  getPatientById(id: number): Observable<Patient> {
+    return this.http.get<Patient>(`${this.apiUrl}/${id}`);
+  }
+  
 }
