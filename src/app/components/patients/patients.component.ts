@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { PatientsService } from '../../services/patient.service';
 import { RouterModule } from '@angular/router'; // ✅ Ajout du RouterModule
+import { Router } from '@angular/router'; // ✅ Ajout du Router
 
 interface Patient {
   id: number;
@@ -23,9 +24,9 @@ interface Patient {
 })
 export class PatientsComponent implements OnInit {
   patients: Patient[] = [];
-  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'phone', 'dateOfBirth', 'address']; // ✅ Ajout pour le tableau
+  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'phone', 'dateOfBirth', 'address', 'actions']; // ✅ Ajout pour le tableau
 
-  constructor(private patientsService: PatientsService) {}
+  constructor(private patientsService: PatientsService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadPatients();
@@ -42,4 +43,11 @@ export class PatientsComponent implements OnInit {
       }
     });
   }
+
+  goToDetails(patientId: number, type: 'dossier' | 'rendezvous') {
+    this.router.navigate([`/patient-details/${patientId}`], { queryParams: { view: type } });
+  }
+  
+
+
 }

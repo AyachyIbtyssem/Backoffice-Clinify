@@ -1,0 +1,140 @@
+/* Augmenter la taille de la liste */
+mat-list {
+  width: 100%;
+  max-width: 700px; /* Plus large */
+  padding: 10px;
+}
+
+/* S'assurer que chaque item est bien visible */
+mat-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Éviter le chevauchement */
+  width: 100%;
+  min-height: 150px; /* Augmenter la hauteur */
+  padding: 15px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  margin-bottom: 13px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+mat-list-item:hover {
+  background: #f3f6fc;
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Agrandir l'icône et améliorer l'espacement */
+mat-icon {
+  font-size: 32px;
+  color: #007bff;
+  margin-right: 15px;
+}
+
+/* Texte bien aligné et espacé */
+mat-list-item h4 {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2c3e50;
+  flex: 1; /* Prend tout l’espace restant */
+}
+
+mat-list-item p {
+  font-size: 13px;
+  color: #444;
+  flex: 2; /* Équilibrer les colonnes */
+  text-align: left;
+}
+
+/* S'assurer que tout est visible */
+.dossier-card {
+  width: 100%;
+  max-width: 750px; /* Augmenter la largeur */
+  margin: auto;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+
+mat-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+
+
+.info-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eef2f7;
+  border-radius: 8px;
+}
+
+.info-section p {
+  font-size: 14px;
+  color: #34495e;
+  margin: 5px 0;
+  text-transform: capitalize;
+}
+
+.statut {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.statut-en-attente {
+  background: #ffcc00;
+  color: #fff;
+}
+
+.statut-valide {
+  background: #27ae60;
+  color: #fff;
+}
+
+.rendezvous {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: #2c3e50;
+  color: white;
+}
+
+td {
+  background: #f9f9f9;
+}

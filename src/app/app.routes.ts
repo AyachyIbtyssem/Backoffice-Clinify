@@ -6,10 +6,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { MedecinsComponent } from './components/medecins/medecins.component';
 import { RendezvousComponent } from './components/rendezvous/rendezvous.component';
+import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
 
 export const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent },
   { path: 'patients', component: PatientsComponent }, // ✅ Ajout de la route Patients
+  { path: 'patient-details/:id', component: PatientDetailsComponent },
+  { path: 'patient-details/:id/dossier-medical', component: PatientDetailsComponent },
+  { path: 'patient-details/:id/rendez-vous', component: PatientDetailsComponent },
   { path: 'medecins', component: MedecinsComponent },
   { path: 'rendezvous', component: RendezvousComponent },
   { path: '', component: HomeComponent }, // Accueil par défaut

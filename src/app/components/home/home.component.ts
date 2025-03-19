@@ -65,11 +65,15 @@ export class HomeComponent implements OnInit {
     const dateStr = d.toDateString();
     const statut = this.rendezvousDates.get(dateStr);
   
-    console.log(`🔹 Vérification : ${dateStr} -> ${statut}`);
+    console.log(`🔹 Vérification : ${dateStr} -> ${statut}`); // Vérifie si la fonction est bien exécutée
   
     if (statut) {
-      return `rdv-${statut.replace(/\s+/g, '-').toLowerCase()}`;  
+      const className = `rdv-${statut.replace(/\s+/g, '-').toLowerCase()}`;
+      console.log(`✅ Ajout de la classe : ${className}`);
+      return className;
     }
     return ''; 
   };
+  
+  
 }
