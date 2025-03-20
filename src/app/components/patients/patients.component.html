@@ -31,19 +31,37 @@
       <td mat-cell *matCellDef="let patient"> {{ patient.address }} </td>
     </ng-container>
 
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <!-- Colonne pour "Dossier Médical" -->
+    <ng-container matColumnDef="Dossier Medical">
+      <th mat-header-cell *matHeaderCellDef> Dossier Médical </th>
       <td mat-cell *matCellDef="let patient">
-        <button mat-button color="primary" (click)="goToDetails(patient.id, 'dossier')">
+        <button mat-button color="warn" (click)="goToDossierMedical(patient.id)">
           Dossier Médical
         </button>
-        <button mat-button color="accent" (click)="goToDetails(patient.id, 'rendezvous')">
-          Rendez-vous
-        </button>        
-        
       </td>
     </ng-container>
 
+    <!-- Colonne pour "Les Rendez-vous" -->
+    <ng-container matColumnDef="Les Rendez Vous">
+      <th mat-header-cell *matHeaderCellDef> Rendez-vous </th>
+      <td mat-cell *matCellDef="let patient">
+        <button mat-button color="warn" (click)="goToRendezvous(patient.id)">
+          Rendez-vous
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Colonne pour "Ajout Dossier Médical" -->
+    <ng-container matColumnDef="ajout">
+      <th mat-header-cell *matHeaderCellDef> Ajout de Dossier Médical </th>
+      <td mat-cell *matCellDef="let patient">
+        <button mat-button color="warn" (click)="goToAjouterDossier(patient.id)">
+          Ajouter
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Définition de l'affichage des colonnes -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 

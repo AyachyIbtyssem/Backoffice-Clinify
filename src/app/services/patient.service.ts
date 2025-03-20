@@ -10,6 +10,7 @@ interface Patient {
   phone: string;
   dateOfBirth: string;
   address: string;
+  dossierMedical?: any;
 }
 
 @Injectable({

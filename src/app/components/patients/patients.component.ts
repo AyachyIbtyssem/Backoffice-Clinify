@@ -24,7 +24,7 @@ interface Patient {
 })
 export class PatientsComponent implements OnInit {
   patients: Patient[] = [];
-  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'phone', 'dateOfBirth', 'address', 'actions']; // ✅ Ajout pour le tableau
+  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'phone', 'dateOfBirth', 'address', 'Dossier Medical', 'Les Rendez Vous','ajout']; // ✅ Ajout pour le tableau
 
   constructor(private patientsService: PatientService, private router: Router) {}
 
@@ -44,10 +44,17 @@ export class PatientsComponent implements OnInit {
     });
   }
 
-  goToDetails(patientId: number, type: 'dossier' | 'rendezvous') {
-    this.router.navigate([`/patient-details/${patientId}`], { queryParams: { view: type } });
+  goToDossierMedical(patientId: number) {
+    this.router.navigate([`/patient-details/${patientId}`], { queryParams: { view: 'dossier' } });
   }
+
+  goToRendezvous(patientId: number) {
+    this.router.navigate([`/patient-details/${patientId}`], { queryParams: { view: 'rendezvous' } });
+  }
+
+  goToAjouterDossier(patientId: number) {
+    this.router.navigate([`/dossier-medical/${patientId}`]);
+  }
+
   
-
-
 }

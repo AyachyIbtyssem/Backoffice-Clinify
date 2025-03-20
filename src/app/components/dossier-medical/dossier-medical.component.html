@@ -1,0 +1,53 @@
+<div class="form-container">
+  <form [formGroup]="dossierForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="analyse">
+      <div *ngFor="let analyse of analyseControls; let i = index" [formGroupName]="i">
+        <div>
+          <label for="nom-{{i}}">Nom de l'analyse</label>
+          <input id="nom-{{i}}" formControlName="nom" />
+          <div *ngIf="analyse.get('nom')?.invalid && analyse.get('nom')?.touched" class="error-message">
+            Nom est requis.
+          </div>
+        </div>
+
+        <div>
+          <label for="date-{{i}}">Date de l'analyse</label>
+          <input id="date-{{i}}" formControlName="date" type="date" />
+          <div *ngIf="analyse.get('date')?.invalid && analyse.get('date')?.touched" class="error-message">
+            Date est requise.
+          </div>
+        </div>
+
+        <div>
+          <label for="resultat-{{i}}">Résultat</label>
+          <input id="resultat-{{i}}" formControlName="resultat" />
+          <div *ngIf="analyse.get('resultat')?.invalid && analyse.get('resultat')?.touched" class="error-message">
+            Résultat est requis.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" (click)="addAnalyse()">Ajouter une analyse</button>
+
+    <label for="statut">Statut</label>
+    <input id="statut" formControlName="statut" />
+    <div *ngIf="dossierForm.get('statut')?.invalid && dossierForm.get('statut')?.touched" class="error-message">
+      Statut est requis.
+    </div>
+
+    <label for="patientId">ID Patient</label>
+    <input id="patientId" formControlName="patientId" />
+    <div *ngIf="dossierForm.get('patientId')?.invalid && dossierForm.get('patientId')?.touched" class="error-message">
+      ID Patient est requis.
+    </div>
+
+    <label for="medecinId">ID Médecin</label>
+    <input id="medecinId" formControlName="medecinId" />
+    <div *ngIf="dossierForm.get('medecinId')?.invalid && dossierForm.get('medecinId')?.touched" class="error-message">
+      ID Médecin est requis.
+    </div>
+
+    <button type="submit" [disabled]="dossierForm.invalid">Ajouter Dossier Médical</button>
+  </form>
+</div>

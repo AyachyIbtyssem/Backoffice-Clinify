@@ -7,6 +7,7 @@ import { PatientsComponent } from './components/patients/patients.component';
 import { MedecinsComponent } from './components/medecins/medecins.component';
 import { RendezvousComponent } from './components/rendezvous/rendezvous.component';
 import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
+import { DossierMedicalComponent } from './components/dossier-medical/dossier-medical.component';
 
 export const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'patient-details/:id', component: PatientDetailsComponent },
   { path: 'patient-details/:id/dossier-medical', component: PatientDetailsComponent },
   { path: 'patient-details/:id/rendez-vous', component: PatientDetailsComponent },
+  { path: 'dossier-medical/:id', component: DossierMedicalComponent },
   { path: 'medecins', component: MedecinsComponent },
   { path: 'rendezvous', component: RendezvousComponent },
   { path: '', component: HomeComponent }, // Accueil par défaut
