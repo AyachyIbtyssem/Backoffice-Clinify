@@ -1,0 +1,18 @@
+<p>Formulaire d'ajout d'analyse</p>
+
+<h2>Ajouter une Analyse</h2>
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <label>Nom de l'Analyse:</label>
+  <input type="text" [(ngModel)]="analyse.nom" name="nom" required />
+
+  <label>Date:</label>
+  <input type="date" [(ngModel)]="analyse.date" name="date" required />
+
+  <label>Résultat:</label>
+  <input type="text" [(ngModel)]="analyse.resultat" name="resultat" required />
+
+  <label>Fichier PDF:</label>
+  <input type="file" (change)="onFileSelected($event)" required />
+  
+  <button type="submit">Ajouter</button>
+</form>

@@ -62,30 +62,7 @@ button.mat-button {
 }
 
 /* Bouton Détails */
-button[color="primary"] {
-    background-color: #007bff; /* Bleu */
-    color: white;
-    border: 2px solid #007bff;
-}
 
-button[color="primary"]:hover {
-    background-color: white;
-    color: #007bff;
-}
-
-/* Bouton Dossier Médical */
-button[color="accent"] {
-    background-color: #28a745; /* Vert */
-    color: white;
-    border: 2px solid #28a745;
-}
-
-button[color="accent"]:hover {
-    background-color: white;
-    color: #28a745;
-}
-
-/* Bouton Rendez-vous */
 button[color="warn"] {
     background-color: #267580; /* Rouge */
     color: white;
@@ -94,7 +71,7 @@ button[color="warn"] {
 
 button[color="warn"]:hover {
     background-color: white;
-    color: #267580;
+    color: #325b61;
 }
 
 /* Effet de survol général */
