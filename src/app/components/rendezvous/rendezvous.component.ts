@@ -6,9 +6,9 @@ import { RendezVousService } from '../../services/rendezvous.service';
 import { RouterModule } from '@angular/router';
 import { PatientService } from '../../services/patient.service';
 import { MedecinsService } from '../../services/medecins.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 // Interface pour représenter un rendez-vous
 interface RendezVous {
@@ -45,15 +45,25 @@ interface Medecin {
 export class RendezvousComponent implements OnInit {
   displayedColumns: string[] = ['date', 'heure', 'statut', 'typeRendezVous', 'NomPatient', 'NomMedecin'];
   dataSource = new MatTableDataSource<RendezVous>([]);
+  isEnAttente: boolean = false;
 
   constructor(
     private rendezVousService: RendezVousService,
     private patientService: PatientService,
-    private medecinService: MedecinsService
+    private medecinService: MedecinsService,
+    private route: ActivatedRoute // Ajout de la virgule ici
   ) {}
 
   ngOnInit(): void {
-    this.loadRendezVous();
+    // Vérifier l'URL pour savoir si on doit afficher les RDV en attente
+    const urlSegments = this.route.snapshot.url.map(segment => segment.path);
+    this.isEnAttente = urlSegments.includes('statut') && urlSegments.includes('en attente');
+
+    if (this.isEnAttente) {
+      this.loadRendezVousEnAttente();
+    } else {
+      this.loadRendezVous();
+    }
   }
 
   loadRendezVous() {
@@ -61,8 +71,8 @@ export class RendezvousComponent implements OnInit {
       next: (data: RendezVous[]) => {
         const observables = data.map(rdv => 
           forkJoin({
-            patient: this.patientService.getPatientById(rdv.IdPatient) as Observable<Patient>,
-            medecin: this.medecinService.getMedecinById(rdv.IdMedecin) as Observable<Medecin>            
+            patient: this.patientService.getPatientById(rdv.IdPatient),
+            medecin: this.medecinService.getMedecinById(rdv.IdMedecin)
           }).pipe(
             map(({ patient, medecin }) => ({
               ...rdv,
@@ -78,6 +88,32 @@ export class RendezvousComponent implements OnInit {
       },
       error: (err) => {
         console.error("Erreur lors du chargement des rendez-vous :", err);
+      }
+    });
+  }
+
+  loadRendezVousEnAttente() {
+    this.rendezVousService.getRendezvousEnAttente().subscribe({
+      next: (data: RendezVous[]) => {
+        const observables = data.map(rdv => 
+          forkJoin({
+            patient: this.patientService.getPatientById(rdv.IdPatient),
+            medecin: this.medecinService.getMedecinById(rdv.IdMedecin)
+          }).pipe(
+            map(({ patient, medecin }) => ({
+              ...rdv,
+              NomPatient: `${patient.firstName} ${patient.lastName}`,
+              NomMedecin: `${medecin.firstName} ${medecin.lastName}`
+            }))
+          )
+        );
+
+        forkJoin(observables).subscribe((updatedRdvList: RendezVous[]) => {
+          this.dataSource.data = updatedRdvList;
+        });
+      },
+      error: (err) => {
+        console.error("Erreur lors du chargement des rendez-vous en attente :", err);
       }
     });
   }

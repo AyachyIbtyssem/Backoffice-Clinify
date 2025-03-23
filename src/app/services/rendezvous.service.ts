@@ -34,5 +34,11 @@ export class RendezVousService {
   getAllRendezvousDates(): Observable<{ date: string, statut: string }[]> {
     return this.http.get<{ date: string, statut: string }[]>(this.apiUrl);
   }
+
+  // Récupérer les rendez-vous en attente
+  getRendezvousEnAttente(): Observable<RendezVous[]> {
+    return this.http.get<RendezVous[]>(`${this.apiUrl}/statut/en%20attente`);
+  }
   
+
 }

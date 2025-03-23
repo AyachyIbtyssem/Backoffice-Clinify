@@ -35,6 +35,13 @@
         <mat-icon>calendar_today</mat-icon> <span *ngIf="!isCollapsed">Rendez-vous</span>
       </a>
     </li>
+    <li *ngIf="isLoggedIn">
+      <a routerLink="/rendezvous/statut/en attente">
+        <mat-icon>pending_actions</mat-icon> 
+        <span *ngIf="!isCollapsed">Rendez-vous en attente</span>
+      </a>
+    </li>
+    
 
     <!-- ✅ Afficher seulement si l'utilisateur N'EST PAS connecté -->
     <li *ngIf="!isLoggedIn">

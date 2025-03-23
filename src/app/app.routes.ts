@@ -20,9 +20,9 @@ export const routes: Routes = [
   { path: 'analyse/:id', component: AnalyseComponent },
   { path: 'medecins', component: MedecinsComponent },
   { path: 'rendezvous', component: RendezvousComponent },
+  { path: 'rendezvous/statut/en attente', component: RendezvousComponent },
   { path: '', component: HomeComponent }, // Accueil par défaut
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', redirectTo: 'login' } // Redirection par défaut
-
 ];
