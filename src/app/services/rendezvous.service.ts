@@ -41,4 +41,9 @@ export class RendezVousService {
   }
   
 
+// Confirmer un rendez-vous avec PATCH
+confirmerRendezVous(idRDV: number): Observable<any> {
+  return this.http.patch(`${this.apiUrl}/${idRDV}/confirmer`, {});
+}
+
 }

@@ -37,6 +37,18 @@
       <td mat-cell *matCellDef="let rdv"> {{ rdv.NomMedecin }} </td>
     </ng-container>
 
+    <!-- Actions -->
+    <ng-container matColumnDef="Confirmation">
+      <th mat-header-cell *matHeaderCellDef> Confirmation </th>
+      <td mat-cell *matCellDef="let rdv">
+        <button mat-button color="primary" (click)="confirmerRendezVous(rdv.idRDV)"
+          *ngIf="rdv.statut?.trim().toLowerCase() === 'en attente'">
+          Confirmer
+        </button>
+      </td>
+    </ng-container>
+    
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
