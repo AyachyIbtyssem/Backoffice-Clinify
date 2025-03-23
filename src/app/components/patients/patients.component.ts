@@ -24,7 +24,7 @@ interface Patient {
 })
 export class PatientsComponent implements OnInit {
   patients: Patient[] = [];
-  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'phone', 'dateOfBirth', 'address', 'Dossier Medical', 'Les Rendez Vous','ajout', 'ajoutAnalyse']; // ✅ Ajout pour le tableau
+  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'phone', 'dateOfBirth', 'address', 'Dossier Medical', 'Les Rendez Vous','ajout', 'ajoutAnalyse', 'radio']; // ✅ Ajout pour le tableau
 
   constructor(private patientsService: PatientService, private router: Router) {}
 
@@ -59,5 +59,9 @@ export class PatientsComponent implements OnInit {
   goToAjouterAnalyse(patientId: number) {
     this.router.navigate([`/analyse/${patientId}`]);
   }
+  goToAjouterRadio(patientId: number) {
+    this.router.navigate([`/radio/${patientId}`]);
+  }
+  
   
 }

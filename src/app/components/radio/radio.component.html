@@ -1,0 +1,7 @@
+
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <label>Fichier Image :</label>
+  <input type="file" (change)="onFileSelected($event)" required />
+  
+  <button type="submit">Ajouter</button>
+</form>
