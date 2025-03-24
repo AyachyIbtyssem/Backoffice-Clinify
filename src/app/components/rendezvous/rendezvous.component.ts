@@ -122,5 +122,17 @@ export class RendezvousComponent implements OnInit {
       }
     });
   }
+  annulerRendezVous(idRDV: number) {
+    this.rendezVousService.annulerRendezVous(idRDV).subscribe({
+      next: () => {
+        console.log(`Rendez-vous ID ${idRDV} annulé avec succès`);
+        this.loadRendezVous(); // Rafraîchir la liste
+      },
+      error: (err) => {
+        console.error(`Erreur lors de l'annulation du rendez-vous ID ${idRDV}:`, err);
+      }
+    });
+  }
+  
   
 }
