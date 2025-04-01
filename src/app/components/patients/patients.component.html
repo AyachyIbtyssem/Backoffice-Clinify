@@ -31,55 +31,27 @@
       <td mat-cell *matCellDef="let patient"> {{ patient.address }} </td>
     </ng-container>
 
-    <!-- Colonne pour "Dossier Médical" -->
-    <ng-container matColumnDef="Dossier Medical">
-      <th mat-header-cell *matHeaderCellDef> Dossier Médical </th>
-      <td mat-cell *matCellDef="let patient">
-        <button mat-button color="warn" (click)="goToDossierMedical(patient.id)">
-          Afficher
+    <!-- Colonne Action -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let patient" class="actions-cell">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
         </button>
-      </td>
-    </ng-container>
-
-    <!-- Colonne pour "Les Rendez-vous" -->
-    <ng-container matColumnDef="Les Rendez Vous">
-      <th mat-header-cell *matHeaderCellDef> Rendez-vous </th>
-      <td mat-cell *matCellDef="let patient">
-        <button mat-button color="warn" (click)="goToRendezvous(patient.id)">
-          Afficher
-        </button>
-      </td>
-    </ng-container>
-
-    <!-- Colonne pour "Ajout Dossier Médical" -->
-    <ng-container matColumnDef="ajout">
-      <th mat-header-cell *matHeaderCellDef> Ajout de Dossier Médical </th>
-      <td mat-cell *matCellDef="let patient">
-        <button mat-button color="warn" (click)="goToAjouterDossier(patient.id)">
-          Ajouter
-        </button>
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="ajoutAnalyse">
-      <th mat-header-cell *matHeaderCellDef> Analyse </th>
-      <td mat-cell *matCellDef="let patient">
-        <button mat-button color="warn" (click)="goToAjouterAnalyse(patient.id)">
-          Ajouter
-        </button>        
-      </td>
+        
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="goToDossierMedical(patient.id)">Afficher Dossier Médical</button>
+          <button mat-menu-item (click)="goToRendezvous(patient.id)">Afficher Rendez-vous</button>
+          <button mat-menu-item (click)="goToAjouterDossier(patient.id)">Ajouter Dossier Médical</button>
+          <button mat-menu-item (click)="goToAjouterAnalyse(patient.id)">Ajouter Analyse</button>
+          <button mat-menu-item (click)="goToAjouterRadio(patient.id)">Ajouter Radio</button>
+        </mat-menu>
+        
+  </td>
+  
     </ng-container>
     
-    <ng-container matColumnDef="radio">
-      <th mat-header-cell *matHeaderCellDef> Radio </th>
-      <td mat-cell *matCellDef="let patient">
-        <button mat-button color="warn" (click)="goToAjouterRadio(patient.id)">
-          Ajouter
-        </button>
-      </td>
-    </ng-container>
-    
-    <!-- Définition de l'affichage des colonnes -->
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
