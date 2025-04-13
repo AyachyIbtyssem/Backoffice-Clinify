@@ -36,6 +36,12 @@
       </a>
     </li>
     <li *ngIf="isLoggedIn">
+      <a routerLink="/notifications">
+        <mat-icon>notifications</mat-icon> <span *ngIf="!isCollapsed">Notifications</span>
+      </a>
+    </li>
+    
+    <li *ngIf="isLoggedIn">
       <a routerLink="/rendezvous/statut/en attente">
         <mat-icon>pending_actions</mat-icon> 
         <span *ngIf="!isCollapsed">Rendez-vous en attente</span>

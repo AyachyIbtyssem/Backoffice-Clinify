@@ -10,6 +10,7 @@ import { PatientDetailsComponent } from './components/patient-details/patient-de
 import { DossierMedicalComponent } from './components/dossier-medical/dossier-medical.component';
 import { AnalyseComponent } from './components/analyse/analyse.component';
 import { RadioComponent } from './components/radio/radio.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 export const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent },
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: 'analyse/:id', component: AnalyseComponent },
   { path: 'medecins', component: MedecinsComponent },
   { path: 'rendezvous', component: RendezvousComponent },
+  { path: 'notifications', component: NotificationComponent },
   { path: 'rendezvous/statut/en attente', component: RendezvousComponent },
   { path: 'radio/:id', component: RadioComponent },
   { path: '', component: HomeComponent }, // Accueil par défaut

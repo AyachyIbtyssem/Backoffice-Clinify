@@ -1,0 +1,40 @@
+<div class="notification-container">
+  <h2>Gestion des Notifications</h2>
+
+  <!-- Message d'erreur -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Formulaire -->
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="notification-form">
+    <div class="form-group">
+      <label for="message">Message :</label>
+      <input id="message" [(ngModel)]="newNotification.message" name="message" required>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type :</label>
+      <select id="type" [(ngModel)]="newNotification.type" name="type" required>
+        <option value="rendez-vous">Rendez-vous</option>
+        <option value="alerte">Alerte</option>
+        <option value="general">Général</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="patientId">ID Patient :</label>
+      <input id="patientId" type="number" [(ngModel)]="newNotification.patientId" name="patientId" required>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid || isLoading">
+      {{ isLoading ? 'Envoi en cours...' : 'Créer' }}
+    </button>
+  </form>
+
+
+
+  <ng-template #noNotifications>
+    <p *ngIf="!isLoading">Aucune notification disponible.</p>
+  </ng-template>
+</div>
