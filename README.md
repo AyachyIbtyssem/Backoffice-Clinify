@@ -1,6 +1,6 @@
-# Clinify Backoffice 
+# Clinify Backoffice (Academic Project)
 
-![Clinify Logo](public/assets/images/logo.png)
+<img src="public/assets/images/logo.png" alt="Clinify Logo" width="100" height="100">
 
 ## Description
 The **Clinify Backoffice** is the web administration panel of the Clinify platform.  
