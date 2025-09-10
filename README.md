@@ -31,3 +31,5 @@ Built with **Angular, TypeScript, and Bootstrap**, it provides a responsive and 
 1. Clone the repository:  
    ```bash
    git clone https://github.com/AyachyIbtyssem/Backoffice-Clinify/
+2. Install dependencies: npm install
+3. Run the app: ng serve
