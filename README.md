@@ -1,59 +1,33 @@
-# Backoffice
+# Clinify Backoffice 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+![Clinify Logo](public/assets/images/logo.png)
 
-## Development server
+## Description
+The **Clinify Backoffice** is the web administration panel of the Clinify platform.  
+It is designed for healthcare professionals to manage patients, appointments, and medical data efficiently.  
+Built with **Angular, TypeScript, and Bootstrap**, it provides a responsive and user-friendly interface.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Features
+- Dashboard for patient management
+- Appointment scheduling and tracking
+- Medical data visualization
+- Secure authentication for healthcare professionals
+- Responsive design for desktop and tablet
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Technologies & Tools 
+<p align="left">
+  <a href="https://angular.io/" target="_blank"> <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" width="60" height="60"/> </a>
+  <a href="https://www.typescriptlang.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="60" height="60"/> </a>
+  <a href="https://getbootstrap.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="Bootstrap" width="60" height="60"/> </a>
+</p>
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## How to Run 
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/AyachyIbtyssem/Backoffice-Clinify/
